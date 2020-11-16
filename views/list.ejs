@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <title>
+            Shopping List
+        </title> 
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+        <link href= "/public/styles.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <header>
+            <h1>My Shopping List</h1>
+        </header>
+        <div class="list">
+            <div class="container">
+                <div class="green">
+                    <h2>Fresh Items</h2>
+                    <p class="subtitle">Produce, meat, seafood, eggs, milk</p>
+                </div>
+                <ul>
+                    <% shoppinglist.forEach(function(item, index) { %>
+                        <li><a href="/list/fresh/delete/<%= index %>">&#10007</a> <%= item %></li>
+                    <% }); %>
+                </ul>
+            </div>
+            <div class="container">
+                <div class="orange">
+                    <h2>Grocery</h2>
+                    <p class=subtitle>cereal, baking ingredients, canned goods, other dry goods</p>
+                </div>
+                <ul>
+                    <% grocerylist.forEach(function(item, index) { %>
+                        <li><a href="/list/grocery/delete/<%= index %>">&#10007</a> <%= item %></li>
+                    <% }); %>
+                </ul>
+            </div>
+            <div class="container">
+                <div class="purple">
+                    <h2>Beer and Wine</h2>
+                    <p class=subtitle>And other alcoholic beverages</p>
+                </div>
+                <ul>
+                    <% beerandwinelist.forEach(function(item, index) { %>
+                        <li><a href="/list/beerandwine/delete/<%= index %>">&#10007</a> <%= item %></li>
+                    <% }); %>
+                </ul>
+            </div>
+            <div class="container">
+                <div class="blue">
+                    <h2>Other</h2>
+                    <p class=subtitle>pet food, household, toothpaste, first aid, beauty</p>
+                </div>
+                <ul>
+                    <% otherlist.forEach(function(item, index) { %>
+                        <li><a href="/list/other/delete/<%= index %>">&#10007</a> <%= item %></li>
+                    <% }); %>
+                </ul>
+            </div>
+        <form action="/list/other/add/" method="post" name="myForm"> 
+            <p>
+<!--                 <label for="newItem">Add to List</label> -->
+                <select name="sections" id="select" required>
+                    <option value="" disabled>Section</option>
+                    <option value="/list/fresh/add/" selected>Fresh Item</option>
+                    <option value="/list/grocery/add/">Grocery</option>
+                    <option value="/list/beerandwine/add/">Beer and Wine</option>
+                    <option value="/list/other/add/">Other</option>
+                </select>
+                <input type="text" name="newItem" id="newItem" autofocus/>
+                <input type="submit" id="btn" value="add item" />
+            </p>
+        </form>
+    </div> <!--"list"-->
+        <script>
+            const submit = document.querySelector("#btn");
+            const select = document.querySelector("#select");
+            const myForm = document.forms.myForm;
+
+            function changeFormAction(){
+                myForm.action = select.options[select.selectedIndex].value; 
+            }
+            
+            submit.addEventListener("click", changeFormAction);
+        </script>
+    </body>
+</html>

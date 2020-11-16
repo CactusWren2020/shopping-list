@@ -1,0 +1,130 @@
+    
+    body {
+        background-color: #525659; 
+    }
+    h1, h2, p, a, li, input, select, option {
+        font-family: "Roboto", sans-serif;
+        text-transform: uppercase;
+    }
+    header {
+        background-color:  #00b6f0;
+        padding: 2em;
+        text-align: right;
+    } 
+    h1 {
+        color: white;
+        margin: 0;
+        font-size: 2em;
+        font-weight: 600;
+    }
+    h2 { 
+        margin-bottom: 0;
+        color: white;
+    }
+    p {
+        color: white;
+    }
+    h2 + p {
+        margin-top: 0;
+    }
+    .list {
+        background-color: #bed630;
+        padding: .5em 1.5em;
+    }
+    .container {
+        background-color: white;
+        border-bottom: 2px solid #bed630;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 10em;
+    }
+    a {
+        text-decoration: none;
+    }
+    ul {
+        min-width: 20em;
+    }
+    li {
+        color: #0ca84b;
+        list-style-type: none;
+        font-weight: 600;
+    }
+    .green {
+        background-color: #0ca84b;
+        width: 100%;
+        text-align: center;
+    }
+    .orange {
+        background-color: #d3691a;
+        width: 100%;
+        text-align: center;
+    }
+    .purple {
+        background-color: #564187;
+        width: 100%;
+        text-align: center;
+    }
+    .blue {
+        background-color: #3e85c5;
+        width: 100%;
+        text-align: center;
+    }
+    li {
+        background-color: #f1f4ff;
+        border-bottom: 2px solid #bed630;
+    }
+    form {
+        text-align: center;
+    }
+    input, label, select {
+        color: #00b6f0;
+        font-weight: 600;
+        padding: .5em;
+        font-size: 1.5em;
+    }
+    option {
+        font-size: .75em;
+        background-color: #f1f4ff;
+    }
+    input[type=text] {
+        background-color: #f1f4ff;
+        border-bottom: 2px solid #bed630;
+        width: 20em;  
+    }
+    select {
+       background-color: #f1f4ff;
+       background-color: #bed630;
+       border: 2px solid #f1f4ff; 
+    }
+
+    @media only screen and (max-width: 450px) {
+        header {
+            padding: .5em 0;
+            text-align: center;
+        }
+        .list {
+            padding: .5em;
+        }
+        .subtitle {
+            display: none;
+        }
+        ul {
+            min-width: 15em;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        li {
+            min-width: 15em;
+        }
+        input[type=text] {
+            width: 10em;
+        }
+        p > label {
+            margin: .5em;
+        }
+        input {
+            margin: .5em;
+        }
+      }
